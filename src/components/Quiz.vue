@@ -10,7 +10,7 @@
         <h2 v-if="status === 'correct'">CORRECT!</h2>
         <h2 v-if="status === 'wrong'">OOPS! The correct answer is <span class="highlight">{{questions[counter].solution[0]}}</span></h2>
         <p v-html="questions[counter].explanation[0]"></p>
-        <b>Excerpt:</b>
+        <b v-if="questions[counter].quotes">Excerpt:</b>
         <p v-html="questions[counter].quotes[0]"></p>
         <div class="result-next-button">
         <button class="primary-button" v-if="counter + 1 < questions.length" @click="nextQuestion()">NEXT</button>
@@ -106,9 +106,13 @@ export default {
     border: 2px solid #234634;
     padding: 15px 20px;
     border-radius: 6px;
+    cursor: pointer;
 }
 
-
+.options:hover {
+    background-color: #234634;
+    color: white;
+}
 
 .result-next-button {
     text-align: center;

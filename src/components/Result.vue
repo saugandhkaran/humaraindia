@@ -5,7 +5,7 @@
     <div class="flex-container">
     <div>You scored <span class="highlight">{{score.score}}</span>/{{score.total}}</div>
     <div class="btn">
-        <router-link to="/" class="link"><button class="primary-button">Try again</button></router-link>
+        <router-link to="/categories" class="link"><button class="primary-button">Try again</button></router-link>
     </div>
     </div>
 </div>
