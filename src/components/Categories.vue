@@ -57,6 +57,7 @@ export default {
     text-align: center;
 }
 .card {
+    background-color: #838bb3;
     width: 300px;
     height: 400px;
     border: 1px solid white;

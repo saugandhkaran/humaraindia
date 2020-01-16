@@ -103,14 +103,14 @@ export default {
 
 
 .options {
-    border: 2px solid #234634;
+    border: 2px solid #838bb3;
     padding: 15px 20px;
     border-radius: 6px;
     cursor: pointer;
 }
 
 .options:hover {
-    background-color: #234634;
+    background-color: #838bb3;
     color: white;
 }
 
