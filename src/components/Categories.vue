@@ -2,11 +2,16 @@
 <div>
     <h1 class="page-title">Categories</h1>
     <div class="flex-container">
-    <div v-for="category in categories" :key="category" class="card" @click="goToQuiz(category)">
-        <img v-if="category.id === 2" src="../assets/indian_politician.jpg" class="card-image">
-        <img v-if="category.id === 1" src="../assets/constitution.jpg" class="card-image">
-        <p class="card-heading">{{category.name}}</p>
-        <p class="card-content">{{category.description}}</p>
+    <div class="card"  @click="goToQuiz(category)">
+      <img src="../assets/random.jpeg" class="card-image">
+      <p class="card-heading">Wild card</p>
+      <p class="card-content">Challenge yourself, by choosing a random category</p>
+    </div>
+    <div v-for="category in categories" :style="{backgroundColor: category.category_color}" :key="category" class="card" @click="goToQuiz(category)">
+      <img v-if="category.id === 2" src="../assets/indian_politician.jpg" class="card-image">
+      <img v-if="category.id === 1" src="../assets/constitution.jpg" class="card-image">
+      <p class="card-heading">{{category.name}}</p>
+      <p class="card-content">{{category.description}}</p>
     </div>
     </div>
 </div>
@@ -69,6 +74,7 @@ export default {
 
 .card .card-image {
     width: 300px;
+    height: 168px;
 }
 .card .card-heading {
     font-size: 1.6em;

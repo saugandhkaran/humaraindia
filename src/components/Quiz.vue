@@ -2,13 +2,18 @@
 <div class="quiz-page">
     <h1 class="quiz-category--header">{{category.name}}</h1>
     <div v-if="!answering" class="question-section">
-        <h3 class="question-counter"><span class="highlight">Question {{counter + 1}}</span>/{{ questions.length }}</h3>
+        <h3 class="question-counter" :style="{borderBottom: '1px dotted ' + category.category_color}">
+            <span class="highlight" :style="{color: category.category_color}">Question {{counter + 1}}</span>/{{ questions.length }}</h3>
         <h4 class="question">{{questions[counter].question}}</h4>
-        <p v-for="options in questions[counter].choices" :key="options" class="options" @click="checkAnswer">{{options}}</p>
+        <p v-for="options in questions[counter].choices"
+        :key="options"
+        class="options" 
+        :style="{border: '2px solid '+ category.category_color}"
+        @click="checkAnswer">{{options}}</p>
     </div>
     <div v-if="answering" class="result-section">
         <h2 v-if="status === 'correct'">CORRECT!</h2>
-        <h2 v-if="status === 'wrong'">OOPS! The correct answer is <span class="highlight">{{questions[counter].solution[0]}}</span></h2>
+        <h2 v-if="status === 'wrong'">OOPS! The correct answer is <span class="highlight" :style="{color: category.category_color}">{{questions[counter].solution[0]}}</span></h2>
         <p v-html="questions[counter].explanation[0]"></p>
         <b v-if="questions[counter].quotes">Excerpt:</b>
         <p v-html="questions[counter].quotes[0]"></p>
@@ -96,22 +101,23 @@ export default {
     text-align: center;
 }
 .question-counter {
-    border-bottom: 1px dotted #838bb3;
     padding-bottom: 10px;
 }
 
-
-
 .options {
-    border: 2px solid #838bb3;
     padding: 15px 20px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .options:hover {
-    background-color: #838bb3;
+    transform: scale(1.05);
+    font-weight: bold;
     color: white;
+    -webkit-box-shadow: -1px 0px 5px -1px rgba(16,53,99,1);
+    -moz-box-shadow: -1px 0px 5px -1px rgba(16,53,99,1);
+    box-shadow: -1px 0px 5px -1px rgba(16,53,99,1);
 }
 
 .result-next-button {
