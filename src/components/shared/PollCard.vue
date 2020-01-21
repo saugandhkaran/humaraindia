@@ -3,17 +3,22 @@
   <h2>D Q-Poll</h2>
   <h2>{{poll[0].question}}</h2>
   <div class="poll-option">
-    <div v-for="choice in poll[0].choices" :key="choice.id" class="options" :style="{ border: '2px solid' + choice.color }">
-      <p>{{choice.choice}}</p>
+    <div v-if="!selected">
+      <div v-for="choice in poll[0].choices" :key="choice.id" class="options" :style="{ border: '2px solid' + choice.color }">
+        <p @click="castPoll">{{choice.choice}}</p>
+      </div>
     </div>
-    <div v-for="choice in poll[0].choices" :key="choice.id" class="options" :style="{ backgroundColor: choice.color, width: choice.count + '%' }">
-      <p>{{choice.choice}}</p>
+    <div v-if="selected">
+      <div v-for="choice in poll[0].choices" :key="choice.id" class="result" :style="{ backgroundColor: choice.color, width: choice.vote_percent + '%' }">
+        <p>{{choice.choice}}</p>
+      </div>
     </div>
   </div>
 </div>
 </template>
 
 <script>
+import qs from 'qs'
 import axios from 'axios'
 export default {
   name: 'PollCard',
@@ -24,8 +29,10 @@ export default {
       poll: [{
         question: '',
         color: '',
-        choices: []
-      }]
+        choices: [],
+        id: ''
+      }],
+      selected: false
     }
   },
   methods: {
@@ -36,6 +43,25 @@ export default {
         });
       if (result) {
           this.poll = result.data.poll;
+      }
+    },
+    castPoll: async function(e) {
+      let body = {
+        id: this.poll[0].id,
+        choice: e.target.innerHTML
+      }
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      let post = await axios.post('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/poll', qs.stringify(body), config)
+      .catch((err) => {
+        alert(err)
+      });
+      if (post) {
+        this.selected = true;
+        this.poll = post.data.poll;
       }
     }
   },
@@ -59,4 +85,14 @@ export default {
   border-radius: 6px;
 }
 
+.result {
+  padding: 10px;
+  margin: 5px;
+  width: 0px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+}
 </style>
