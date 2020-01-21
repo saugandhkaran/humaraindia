@@ -1,5 +1,11 @@
 <template>
 <div class="quiz-page">
+    <audio id="correctAudio">
+        <source src="../assets/correct.wav" type="audio/wav">
+    </audio>
+    <audio id="wrongAudio">
+        <source src="../assets/wrong.wav" type="audio/wav">
+    </audio>
     <h1 class="quiz-category--header">{{category.name}}</h1>
     <div v-if="!answering" class="question-section">
         <h3 class="question-counter" :style="{borderBottom: '1px dotted ' + category.category_color}">
@@ -15,11 +21,10 @@
         <h2 v-if="status === 'correct'">CORRECT!</h2>
         <h2 v-if="status === 'wrong'">OOPS! The correct answer is <span class="highlight" :style="{color: category.category_color}">{{questions[counter].solution[0]}}</span></h2>
         <p v-html="questions[counter].explanation[0]"></p>
-        <b v-if="questions[counter].quotes">Excerpt:</b>
-        <p v-html="questions[counter].quotes[0]"></p>
+        <p v-if="questions[counter].quotes[0]">" <span v-html="questions[counter].quotes[0]"></span> "</p>
         <div class="result-next-button">
-        <button class="primary-button" v-if="counter + 1 < questions.length" @click="nextQuestion()">NEXT</button>
-        <button class="primary-button" v-if="counter + 1 === questions.length" @click="showResult()">SHOW RESULTS</button>
+        <button class="primary-button" :style="{backgroundColor: category.category_color}" v-if="counter + 1 < questions.length" @click="nextQuestion()">NEXT</button>
+        <button class="primary-button" :style="{backgroundColor: category.category_color}" v-if="counter + 1 === questions.length" @click="showResult()">SHOW RESULTS</button>
         </div>
     </div>
 </div>
@@ -62,9 +67,13 @@ export default {
       checkAnswer: function(e) {
           this.answering = true;
           if (this.questions[this.counter].solution[0] === e.target.innerHTML) {
+              let a = document.getElementById('correctAudio');
+              a.play();
               this.status = 'correct';
               this.score++;
           } else {
+              let a = document.getElementById('wrongAudio');
+              a.play();
               this.status = 'wrong';
           }
       },

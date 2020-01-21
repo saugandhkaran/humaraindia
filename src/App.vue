@@ -34,12 +34,13 @@ div {
   padding: 0;
 }
 .primary-button {
-    padding: 15px 40px;
+    padding: 10px 40px;
     border-radius: 6px;
+    font-weight: bold;
     color: white;
     font-size: 1.2em;
     background-color: #234634;
-    bordeR: 2px solid white;
+    bordeR: 1px solid #3b4b96;
 }
 .highlight {
     color: #838bb3;
