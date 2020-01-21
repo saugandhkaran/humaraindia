@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     async getPollQuestion () {
-      let result = await axios.get('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/poll/')
+      let result = await axios.get('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/poll')
         .catch((err) => {
             alert(err);
         });
