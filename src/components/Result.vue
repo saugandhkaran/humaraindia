@@ -3,10 +3,10 @@
     <h1 class="quiz-category--header">{{category.name}}</h1>
     <h3 class="page-title">Results</h3>
     <div class="flex-container">
-    <div>You scored <span class="highlight">{{score.score}}</span>/{{score.total}}</div>
-    <div class="btn">
-        <router-link to="/categories" class="link"><button class="primary-button">Try again</button></router-link>
-    </div>
+    <h1>You scored <span class="highlight" :style="{color: $store.getters.category.category_color}">{{score.score}}</span>/{{score.total}}</h1>
+        <router-link to="/categories" class="link">
+            <button class="primary-button" :style="{backgroundColor: $store.getters.category.category_color}">Go back to categories</button>
+        </router-link>
     </div>
 </div>
 </template>
