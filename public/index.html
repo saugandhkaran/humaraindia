@@ -11,6 +11,15 @@
     <noscript>
       <strong>We're sorry but myquiz doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "07d16789-7a3f-4dc0-8d26-8768a15ea613",
+        });
+      });
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
