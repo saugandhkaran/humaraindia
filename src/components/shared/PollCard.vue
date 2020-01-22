@@ -75,6 +75,7 @@ export default {
 <style scoped>
 .poll-card {
   max-width: 500px;
+  margin-bottom: 20px;
 }
 
 .options {

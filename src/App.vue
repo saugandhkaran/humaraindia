@@ -4,15 +4,18 @@
   <div id="app">
     <router-view></router-view>
   </div>
+<Footer></Footer>
 </div>
 </template>
 
 <script>
 import Header from './components/shared/Header'
+import Footer from './components/shared/Footer'
 export default {
   name: 'app',
   components: {
-    Header
+    Header,
+    Footer
   }
 }
 </script>
@@ -48,5 +51,7 @@ div {
     font-weight: bold;
 }
 #app {
+  max-width: 1366px;
+  margin: 0 auto;
 }
 </style>
