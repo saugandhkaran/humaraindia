@@ -31,7 +31,17 @@ body {
 h1,h2,h3 {
   /* color: #838bb3; */
 }
-
+input[type=text] {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  min-height: 20px;
+  min-width: 300px;
+  font-size: 16px;
+  color: #252c4a;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: none;
+}
 div {
   margin: 0;
   padding: 0;

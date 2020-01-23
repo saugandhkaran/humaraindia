@@ -10,7 +10,7 @@
     </div>
     <div v-if="selected">
       <div v-for="choice in poll[0].choices" :key="choice.id" class="result" :style="{ backgroundColor: choice.color, width: choice.vote_percent + '%' }">
-        <p>{{choice.choice}}</p>
+        <p>{{choice.choice}} <b>{{choice.vote_percent}}%</b></p>
       </div>
     </div>
   </div>

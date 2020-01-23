@@ -5,7 +5,7 @@
     <img style="width: 100%" src="../assets/landing.png"/>
   </div>
   <div class="section">
-    <p>Be <span class="highlight">DINQ</span>uisitive | Explore <span class="highlight">India</span></p>
+    <p>Be <span class="highlight">'D' INQ</span>uizitive | Explore <span class="highlight">India</span></p>
   </div>
   <div class="section" style="margin-bottom: 40px;">
     <div class="section-half">

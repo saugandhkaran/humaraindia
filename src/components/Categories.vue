@@ -1,6 +1,7 @@
 <template>
-<div>
-    <h1 class="page-title">Categories</h1>
+<div class="categories">
+    <modal v-if="showModal" @close-name-modal="closeModal"></modal>
+    <h1 class="page-title">Welcome {{name}}, Choose your category</h1>
     <div class="flex-container">
     <div class="card"  @click="goToQuiz(category)">
       <img src="../assets/random.jpeg" class="card-image">
@@ -22,16 +23,20 @@
 
 <script>
 import axios from 'axios';
+import Modal from './shared/Modal'
 export default {
   name: 'Categories',
   components: {
+    'modal': Modal
   },
   props: {
     game: String,
   },
   data() {
     return {
-        categories: []
+        categories: [],
+        name: '',
+        showModal: false
     }
   },
   methods: {
@@ -43,19 +48,36 @@ export default {
           this.categories = result.data.categories;
       },
       goToQuiz (category) {
+        if (this.name) {
           this.$store.commit('setCategory', category);
           this.$router.push('/quiz');
+        } else {
+          this.showModal = true;
+        }
+      },
+      getName () {
+        this.name = localStorage.getItem('dinquser');
+      },
+      closeModal: function() {
+        this.getName();
+        this.showModal = false;
       }
   },
   mounted() {
     window.scrollTo(top);
     this.getAllCategories();
+  },
+  created() {
+    this.getName();
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.categories {
+  min-height: 90vh;
+}
 .flex-container {
     display: flex;
     flex-wrap: wrap;
