@@ -37,7 +37,7 @@ input[type=text] {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   min-height: 20px;
-  min-width: 300px;
+  min-width: 260px;
   font-size: 16px;
   color: #252c4a;
   font-weight: bold;

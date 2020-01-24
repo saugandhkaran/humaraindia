@@ -13,7 +13,7 @@
                       title="D Inquizitive"
                       :description="getQuote"
                       :quote="getQuote"
-                      hashtags="quiz, india, beinquizitive"
+                      hashtags="quiz, india, beinquizitive,dinqIndia"
                       inline-template>
         <div class="share-section">
             <network network="facebook">
