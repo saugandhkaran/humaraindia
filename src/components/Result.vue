@@ -7,20 +7,32 @@
     <router-link to="/categories" class="link">
         <button class="primary-button" :style="{backgroundColor: $store.getters.category.category_color}">Go back to categories</button>
     </router-link>
-    <h2 class="share-header">Challenge your friends now!</h2>
-    <div class="share-section">
-        <div class="share facebook">
-            <img src="../assets/fb.png" />
-            <p>Share your score</p>
+    <h2 class="share-header">Challenge your friends now! Share your scores on</h2><br><br>
+    <div>
+        <social-sharing :url="getShareUrl"
+                      title="D Inquizitive"
+                      :description="getQuote"
+                      :quote="getQuote"
+                      hashtags="quiz, india, beinquizitive"
+                      inline-template>
+        <div class="share-section">
+            <network network="facebook">
+            <div class="share facebook">
+                <img src="../assets/fb.png" />
+            </div>
+            </network>
+            <network network="twitter">
+            <div class="share twitter">
+                <img src="../assets/twitter.png" />
+            </div>
+            </network>
+            <network network="whatsapp">
+            <div class="share whatsapp">
+                <img src="../assets/whatsapp.png" />
+            </div>
+            </network>
         </div>
-        <div class="share twitter">
-            <img src="../assets/twitter.png" />
-            <p>Share your score</p>
-        </div>
-        <div class="share whatsapp">
-            <img src="../assets/whatsapp.png" />
-            <p>Share your score</p>
-        </div>
+    </social-sharing>
     </div>
     </div>
 </div>
@@ -37,7 +49,8 @@ export default {
   data() {
     return {
         category: {},
-        score: {}
+        score: {},
+        description: 'hey'
     }
   },
   methods: {
@@ -47,6 +60,14 @@ export default {
           if (!this.category && !this.score) {
               this.$router.push('categories');
           }
+      }
+  },
+  computed: {
+      getQuote () {
+          return 'Hey, I scored ' + this.score.score + '/' + this.score.total + ' in ' + this.category.name + `. Why don't you try out?`;
+      },
+      getShareUrl () {
+          return 'http://dinq.in/quiz/' + this.category.slug;
       }
   },
   mounted() {
@@ -75,7 +96,7 @@ export default {
 .share-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -83,7 +104,7 @@ export default {
     margin-top: 80px;
 }
 
-.share {
+.share-section .share {
     border: 1px solid white;
     padding-top: 20px;
     padding-left: 10px;
