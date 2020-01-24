@@ -13,7 +13,7 @@
   </div>
   <div>
     <ul>HELP
-      <li>About us</li>
+      <router-link to="aboutus" class="link"><li>About us</li></router-link>
       <li>Mission</li>
       <li>Contact us</li>
     </ul>
@@ -46,6 +46,7 @@ export default {
 .footer {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   height: 60px;
   align-items: center;
   background-color: #070708;
@@ -68,4 +69,8 @@ export default {
   border-top: 1px solid #252c4a;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
 </style>

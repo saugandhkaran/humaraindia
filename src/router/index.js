@@ -5,6 +5,7 @@ import Home from '../components/Home'
 import Quiz from '../components/Quiz'
 import Categories from '../components/Categories'
 import Result from '../components/Result'
+import AboutUs from '../components/AboutUs'
 
 Vue.use(Router);
 export default new Router({
@@ -31,6 +32,11 @@ export default new Router({
       path: '/result',
       name: 'Result',
       component: Result,
+    },
+    {
+      path: '/aboutus',
+      name: 'AboutUs',
+      component: AboutUs
     }
   ]
 });
