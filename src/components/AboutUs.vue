@@ -37,5 +37,6 @@ export default {
 <style scoped>
 .about-page {
     min-height: 80vh;
+    padding: 20px;
 }
 </style>

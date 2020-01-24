@@ -6,7 +6,7 @@
   </div>
   <div>
     <ul>PRODUCT
-      <li>Categories</li>
+      <router-link to="categories" class="link"><li>Categories</li></router-link>
       <li>Events calendar</li>
     </ul>
   </div>
