@@ -64,7 +64,7 @@ export default {
   },
   computed: {
       getQuote () {
-          return 'Hey, I scored ' + this.score.score + '/' + this.score.total + ' in ' + this.category.name + `. Why don't you try out?`;
+          return 'Hey, I scored ' + this.score.score + '/' + this.score.total + ' in ' + this.category.name + ` on DInq. Why don't you try out?`;
       },
       getShareUrl () {
           return 'http://dinq.in/quiz/' + this.category.slug;
