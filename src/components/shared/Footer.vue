@@ -12,7 +12,7 @@
   </div>
   <div>
     <ul>HELP
-      <router-link to="aboutus" class="link"><li>About us</li></router-link>
+      <router-link to="/aboutus" class="link"><li>About us</li></router-link>
       <li><a href="mailto:support@dinq.in?Subject=Query%20contact" target="_top" class="link">Contact us</a></li>
     </ul>
   </div>
