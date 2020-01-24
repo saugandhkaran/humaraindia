@@ -47,7 +47,6 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 60px;
   align-items: center;
   background-color: #070708;
   color: white;
