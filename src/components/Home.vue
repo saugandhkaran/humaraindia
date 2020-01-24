@@ -2,7 +2,7 @@
 <div>
   <div class="section">
     <p>So you think you know <span class="highlight">India</span>?</p>
-    <img style="width: 100%" src="../assets/landing.png"/>
+    <img style="width: 100%" src="../assets/landing_1.png"/>
   </div>
   <div class="section">
     <p>Be <span class="highlight">'D' INQ</span>uizitive | Explore <span class="highlight">India</span></p>

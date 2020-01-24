@@ -27,7 +27,7 @@ export default {
 .header {
   display: flex;
   justify-content: space-between;
-  padding-bottom:10px;
+  padding:20px 0px;
 }
 
 .header h3 {

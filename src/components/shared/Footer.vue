@@ -6,7 +6,6 @@
   </div>
   <div>
     <ul>PRODUCT
-      <li>Quiz of the week</li>
       <li>Categories</li>
       <li>Events calendar</li>
     </ul>
@@ -14,8 +13,7 @@
   <div>
     <ul>HELP
       <router-link to="aboutus" class="link"><li>About us</li></router-link>
-      <li>Mission</li>
-      <li>Contact us</li>
+      <li><a href="mailto:support@dinq.in?Subject=Query%20contact" target="_top" class="link">Contact us</a></li>
     </ul>
   </div>
 </div>

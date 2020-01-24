@@ -1,5 +1,5 @@
 <template>
-<div class="quiz-page">
+<div class="quiz-page" v-if="category">
     <audio id="correctAudio">
         <source src="../assets/correct.wav" type="audio/wav">
     </audio>
@@ -52,17 +52,26 @@ export default {
   methods: {
       async setQuiz () {
         this.category = this.$store.getters.category;
-          if (this.category) {
-              let result = await axios.get('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/questions/' + this.category.id)
-                .catch((err) => {
-                    alert(err);
-                });
-                if (result) {
-                    this.questions = result.data.questions;
-                }
-          } else {
-              this.$router.push('/categories');
-          }
+        if (this.category) {
+            let result = await axios.get('http://64.225.70.15/rest/questions/' + this.category.slug)
+            .catch((err) => {
+                alert(err);
+            });
+            if (result) {
+                this.questions = result.data.questions;
+            }
+        } else {
+            let slugFromUrl = this.$route.path.split('/');
+            let result = await axios.get('http://64.225.70.15/rest/questions/' + slugFromUrl[2])
+            .catch((err) => {
+                alert(err);
+            })
+            if (result) {
+                this.questions = result.data.questions;
+            } else {
+            this.$router.push('/categories');
+            }
+        }
       },
       checkAnswer: function(e) {
           this.answering = true;
@@ -104,6 +113,7 @@ export default {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    min-height: 85vh;
 }
 
 .quiz-category--header {

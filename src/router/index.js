@@ -24,7 +24,7 @@ export default new Router({
       component: Categories,
     },
     {
-      path: '/quiz',
+      path: '/quiz/:slug',
       name: 'Quiz',
       component: Quiz,
     },

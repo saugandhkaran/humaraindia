@@ -3,11 +3,6 @@
     <modal v-if="showModal" @close-name-modal="closeModal"></modal>
     <h1 class="page-title">Welcome {{name}}, Choose your category</h1>
     <div class="flex-container">
-    <div class="card"  @click="goToQuiz(category)">
-      <img src="../assets/random.jpeg" class="card-image">
-      <p class="card-heading">Wild card</p>
-      <p class="card-content">Challenge yourself, by choosing a random category</p>
-    </div>
     <div v-for="category in categories" :style="{backgroundColor: category.category_color}" :key="category" class="card" @click="goToQuiz(category)">
       <img v-if="category.id === 2" src="../assets/indian_politician.jpg" class="card-image">
       <img v-if="category.id === 1" src="../assets/constitution.jpg" class="card-image">
@@ -41,7 +36,7 @@ export default {
   },
   methods: {
       async getAllCategories () {
-        let result = await axios.get('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/categories')
+        let result = await axios.get('http://64.225.70.15/rest/categories')
           .catch((err) => {
               alert(err);
           })
@@ -50,7 +45,7 @@ export default {
       goToQuiz (category) {
         if (this.name) {
           this.$store.commit('setCategory', category);
-          this.$router.push('/quiz');
+          this.$router.push('/quiz/' + category.slug);
         } else {
           this.showModal = true;
         }
