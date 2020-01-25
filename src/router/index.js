@@ -6,6 +6,7 @@ import Quiz from '../components/Quiz'
 import Categories from '../components/Categories'
 import Result from '../components/Result'
 import AboutUs from '../components/AboutUs'
+import EventCalendar from '../components/EventCalendar'
 
 Vue.use(Router);
 export default new Router({
@@ -37,6 +38,11 @@ export default new Router({
       path: '/aboutus',
       name: 'AboutUs',
       component: AboutUs
+    },
+    {
+      path: '/event-calendar',
+      name: 'EventCalendar',
+      component: EventCalendar
     }
   ]
 });

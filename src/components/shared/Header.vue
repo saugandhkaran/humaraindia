@@ -3,7 +3,7 @@
   <div><router-link to="/" class="link" ><h3>'D'INQuizitive</h3></router-link></div>
   <div class="header-right">
     <router-link to="/categories" class="link"><h3>Play</h3></router-link>
-    <router-link to="/aboutus" class="link"><h3>About Us</h3></router-link>
+    <router-link to="/event-calendar" class="link"><h3>Event Calendar</h3></router-link>
   </div>
 </div>
 </template>
