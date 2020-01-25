@@ -2,7 +2,7 @@
 <div>
 <div class="event-calendar">
     <h3>Here are the list of upcoming quizes. Stay tuned!</h3>
-    <div class="flex-table" v-for="event in eventList" :key="event.id">
+    <div class="flex-table" v-for="event in eventList" :key="event.id" :style="{ backgroundColor: event.category_color }">
         <h3>{{event.date_time}} - {{event.choices}}</h3>
         <p>{{event.remarks}}</p>
     </div>
