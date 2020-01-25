@@ -7,7 +7,7 @@
         <source src="../assets/wrong.wav" type="audio/wav">
     </audio>
     <h1 class="quiz-category--header">{{category.name}}</h1>
-    <div v-if="!answering" class="question-section">
+    <div v-if="!answering && questions[counter]" class="question-section">
         <h3 class="question-counter" :style="{borderBottom: '1px dotted ' + category.category_color}">
             <span class="highlight" :style="{color: category.category_color}">Question {{counter + 1}}</span>/{{ questions.length }}</h3>
         <h4 class="question">{{questions[counter].question}}</h4>
@@ -53,7 +53,7 @@ export default {
       async setQuiz () {
         this.category = this.$store.getters.category;
         if (this.category) {
-            let result = await axios.get('http://64.225.70.15/rest/questions/' + this.category.slug)
+            let result = await axios.get('https://dinq.in/rest/questions/' + this.category.slug)
             .catch((err) => {
                 alert(err);
             });
@@ -62,7 +62,7 @@ export default {
             }
         } else {
             let slugFromUrl = this.$route.path.split('/');
-            let result = await axios.get('http://64.225.70.15/rest/questions/' + slugFromUrl[2])
+            let result = await axios.get('https://dinq.in/rest/questions/' + slugFromUrl[2])
             .catch((err) => {
                 alert(err);
             })

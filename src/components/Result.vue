@@ -67,7 +67,7 @@ export default {
           return 'Hey, I scored ' + this.score.score + '/' + this.score.total + ' in ' + this.category.name + ` on DInq. Why don't you try out?`;
       },
       getShareUrl () {
-          return 'http://dinq.in/quiz/' + this.category.slug;
+          return 'https://dinq.in/quiz/' + this.category.slug;
       }
   },
   mounted() {

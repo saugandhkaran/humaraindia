@@ -3,9 +3,8 @@
     <modal v-if="showModal" @close-name-modal="closeModal"></modal>
     <h1 class="page-title">Welcome {{name}}, Choose your category</h1>
     <div class="flex-container">
-    <div v-for="category in categories" :style="{backgroundColor: category.category_color}" :key="category" class="card" @click="goToQuiz(category)">
-      <img v-if="category.id === 2" src="../assets/indian_politician.jpg" class="card-image">
-      <img v-if="category.id === 1" src="../assets/constitution.jpg" class="card-image">
+    <div v-for="category in categories" :style="{backgroundColor: category.category_color}" :key="category.id" class="card" @click="goToQuiz(category)">
+      <img :src="category.image_url" class="card-image">
       <div v-if="category.latest" class="banner-cover">
         <div class="banner">LATEST</div>
       </div>
@@ -36,7 +35,7 @@ export default {
   },
   methods: {
       async getAllCategories () {
-        let result = await axios.get('http://64.225.70.15/rest/categories')
+        let result = await axios.get('https://dinq.in/rest/categories')
           .catch((err) => {
               alert(err);
           })

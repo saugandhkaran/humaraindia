@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async getPollQuestion () {
-      let result = await axios.get('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/poll')
+      let result = await axios.get('https://dinq.in/rest/poll')
         .catch((err) => {
             alert(err);
         });
@@ -55,7 +55,7 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       }
-      let post = await axios.post('https://cors-anywhere.herokuapp.com/http://64.225.70.15/rest/poll', qs.stringify(body), config)
+      let post = await axios.post('https://dinq.in/rest/poll', qs.stringify(body), config)
       .catch((err) => {
         alert(err)
       });

@@ -2,7 +2,8 @@
 <div>
 <div class="footer">
   <div>
-    <h3>'D'INQuizitive</h3>
+    <img style="width:50px;margin-left: 4px;" src="https://i.imgur.com/AUVhn2G.png" />
+    <!-- <h3>DINQ</h3> -->
   </div>
   <div>
     <ul>PRODUCT
@@ -17,11 +18,11 @@
     </ul>
   </div>
 </div>
-<div class="footer-end">
+<!-- <div class="footer-end">
   <p>Copyrights dinq.in</p>
   <p>Disclaimer</p>
   <p>Terms of service</p>
-</div>
+</div> -->
 </div>
 </template>
 

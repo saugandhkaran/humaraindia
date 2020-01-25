@@ -26,7 +26,7 @@ export default {
   },
   methods: {
       async getEventList () {
-          const result = await axios.get('http://64.225.70.15/rest/send-timeline/')
+          const result = await axios.get('https://dinq.in/rest/send-timeline/')
           .catch((err) => {
               alert(err);
           })
