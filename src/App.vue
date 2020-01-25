@@ -24,7 +24,7 @@ export default {
 body {
   background-color: #252c4a;
   color: #fefeff;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Rubik', 'Avenir', Helvetica, Arial, sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
