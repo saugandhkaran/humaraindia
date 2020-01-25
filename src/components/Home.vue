@@ -53,6 +53,7 @@ export default {
 }
 
 .section {
+  padding: 10px;
   margin-top: 20px;
   text-align: center;
   display: flex;
