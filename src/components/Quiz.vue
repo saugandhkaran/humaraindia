@@ -69,6 +69,7 @@ export default {
             if (result) {
                 this.questions = result.data.questions;
                 this.category = result.data.category[0];
+                this.$store.commit('setCategory', this.category);
             } else {
             this.$router.push('/categories');
             }
